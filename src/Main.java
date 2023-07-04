@@ -1,5 +1,10 @@
+import Task.CheckSum;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        int[] a ={1,2,3,4,5,6};
+
+        System.out.println(CheckSum.checkSum(a, 11));
+
     }
 }
