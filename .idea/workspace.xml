@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82fb2d85-3701-4a06-9da6-6f5a95c15ea3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Task/CheckSum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Task/Degree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task/Degree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Task/Palindrome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task/Palindrome.java" afterDir="false" />
-    </list>
+    <list default="true" id="82fb2d85-3701-4a06-9da6-6f5a95c15ea3" name="Changes" comment="finish converter" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,14 +26,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Umar/Documents/GitHub/My-Task-Git/src"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Umar/Documents/GitHub/My-Task-Git/src&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Umar\Documents\GitHub\My-Task-Git\src" />
@@ -67,8 +61,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688479459280</updated>
-      <workItem from="1688479460483" duration="1940000" />
+      <workItem from="1688479460483" duration="4268000" />
+      <workItem from="1688508778710" duration="3915000" />
     </task>
+    <task id="LOCAL-00001" summary="3 task finish">
+      <created>1688481880443</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688481880443</updated>
+    </task>
+    <task id="LOCAL-00002" summary="finish converter">
+      <created>1688512722479</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1688512722479</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,15 +95,9 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>7</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="3 task finish" />
+    <MESSAGE value="finish converter" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish converter" />
   </component>
 </project>
