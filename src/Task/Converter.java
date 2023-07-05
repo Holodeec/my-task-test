@@ -17,8 +17,8 @@ public class Converter {
 
         int length = s.length() -1;
         char[] arr = s.toCharArray();
-        int a = map.get(arr[length]);
-        int mass = 0;
+        int mass , a = map.get(arr[length]);
+
 
         for (int i = length -1; i >= 0; i--) {
                 mass = map.get(arr[i]);
