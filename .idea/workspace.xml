@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82fb2d85-3701-4a06-9da6-6f5a95c15ea3" name="Changes" comment="finish converter" />
+    <list default="true" id="2a4955e0-70c8-46fc-88de-e2882e37a514" name="Changes" comment="finish converter">
+      <change afterPath="$PROJECT_DIR$/src/Task/ArrayMerging.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Task/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task/Converter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,5 +104,16 @@
     <MESSAGE value="3 task finish" />
     <MESSAGE value="finish converter" />
     <option name="LAST_COMMIT_MESSAGE" value="finish converter" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Task/ArrayMerging.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
