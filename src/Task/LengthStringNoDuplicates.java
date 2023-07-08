@@ -8,8 +8,6 @@ public class LengthStringNoDuplicates {
 
     public static int lengthOfLongestSubstring(String s) {
         HashSet<String> set = new HashSet<>();
-        char[] arr = s.toCharArray();
-
 
         for (int i = 0; i < s.length(); i++) {
             set.add(String.valueOf(s.charAt(i)));
