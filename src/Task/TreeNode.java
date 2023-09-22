@@ -1,67 +1,132 @@
 package Task;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class TreeNode {
-    int value;
-    List<String> list;
-    TreeNode left;
-    TreeNode right;
+    public int value;
+    public TreeNode left;
+    public TreeNode right;
 
     public TreeNode() {
     }
-
     public TreeNode(int value) {
         this.value = value;
     }
-
-    public TreeNode(int value, List<String> list) {
+    public TreeNode(int value, TreeNode left) {
         this.value = value;
-        this.list = list;
-    }
-
-    public TreeNode(int value, List<String> list, TreeNode left) {
-        this.value = value;
-        this.list = list;
         this.left = left;
     }
-
-    public TreeNode(int value, List<String> list, TreeNode left, TreeNode right) {
-        this.value = value;
-        this.list = list;
-        this.left = left;
-        this.right = right;
-    }
-
     public TreeNode(int value, TreeNode left, TreeNode right) {
         this.value = value;
         this.left = left;
         this.right = right;
     }
 
-    public static List<Integer> revers(TreeNode treeNode) {
-        List<Integer> list = new ArrayList<>();
-        TreeNode first = treeNode;
-        TreeNode last = treeNode;
-        Stack<TreeNode> stack = new Stack<>();
+    public boolean isEmpty() {
+        return value == 0 && right == null && left == null;
+    }
 
-        while (first != null || last != null) {
-            if (first.left != null) {
-                stack.push(first.left);
-                stack.push(first);
-                stack.push(first.right);
-                first = first.left;
-            } else if (first.right != null) {
-                stack.push(last.left);
-                stack.push(last);
-                stack.push(last.right);
-                last = last.left;
+    @Override
+    public String toString() {
+        return "val = " + value;
+    }
+
+    // todo Метод делает обратный обход бинарного дерева
+    public static List<Integer> revers(TreeNode root) {
+
+        List<Integer> list = new ArrayList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.push(root);
+        while (stack.size() > 0) {
+            TreeNode t = stack.pop();
+            list.add(t.value);
+
+            if(t.right != null) {
+                stack.push(t.right);
             }
-            list.add(stack.pop().value);
+            if (t.left != null) {
+                stack.push(t.left);
+            }
+        }
+        return list;
+    }
+
+    // todo Рекурсивный обход дерева
+    public static void reversTwin(TreeNode t) {
+        reversRecursion(t);
+    }
+    private static void reversRecursion(TreeNode t) {
+        if (t != null) {
+            reversRecursion(t.left);
+            System.out.println("node = " + t.value);
+
+            reversRecursion(t.right);
+        }
+    }
+
+    // todo Метод обходит дерево слева на право и считает сумму
+    public static int sumDeep(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        int sum = 0;
+
+        while (!stack.isEmpty()) {
+            TreeNode t = stack.pop();
+            sum += t.value;
+            System.out.println(t);
+
+
+            if(t.right != null) {
+                stack.push(t.right);
+            }
+
+            if(t.left != null) {
+                stack.push(t.left);
+            }
+
+        }
+        return sum;
+    }
+
+    // todo Метод разворачивает бинарное дерево
+    public static void reverseInOrderTraversal(TreeNode root) {
+        if (root == null) {
+            return;
         }
 
-        return list;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
+        TreeNode prev = null;
+
+        while (!stack.isEmpty() || current != null) {
+            while (current != null) {
+                stack.push(current);
+                current = current.right;
+            }
+
+            current = stack.peek();
+
+            if (current.left != null && current.left != prev) {
+                current = current.left;
+            } else {
+                stack.pop();
+                // Выводим элементы в обратном порядке
+                System.out.println(current.value);
+                prev = current;
+                current = null; // что бы не запускался цикл наверху
+            }
+        }
+    }
+
+    // todo Метод обходит бинарное дерево и находит путь с максимальным значением суммируя их
+    public static int maxPathSum(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int maxLeft = maxPathSum(root.left);
+        int maxRight = maxPathSum(root.right);
+
+        return Math.max(maxLeft, maxRight) + root.value;
     }
 }

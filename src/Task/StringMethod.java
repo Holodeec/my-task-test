@@ -1,9 +1,6 @@
 package Task;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class StringMethod {
 
@@ -158,5 +155,64 @@ public class StringMethod {
         return true;
     }
 
+    // todo Метод убирает из строки последовательные дубликаты букв игнорируя регистр букв
+    public static String removeDuplicate(String s) {
+
+        char[] arr = s.toCharArray();
+        StringBuilder str = new StringBuilder();
+        str.append(arr[0]);
+
+        for (int i = 1; i < s.length(); i++) {
+            if (Character.toLowerCase(arr[i - 1]) != Character.toLowerCase(arr[i])) {
+                str.append(arr[i]);
+            }
+        }
+        return str.toString();
+    }
+
+    // todo Метод проверяет закрываются ли скобки в строке
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack();
+
+        for(char a : s.toCharArray()) {
+            if (a == '(' || a == '[' || a == '{') {
+                stack.push(a);
+            } else {
+                if (stack.isEmpty()) { return false;}
+
+                if (a == ')' && stack.peek() == '(') {
+                    stack.pop();
+                } else if (a == ']' && stack.peek() == '[') {
+                    stack.pop();
+                } else if (a == '}' && stack.peek() == '{') {
+                    stack.pop();
+                } else {return false;}
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    public static int StringToInt(String s) {
+        int count = 0;
+        int multiplay = 10;
+
+        for (int i = 0; i < s.length(); i++) {
+            int digit = s.charAt(i) - '0';
+            count = count * multiplay + digit;
+        }
+        return count;
+    }
+
+    public static int toInt(String s) {
+        int number = 0;
+        int mult = 1;
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            int a = s.charAt(i) - '0';
+            number += a * mult;
+            mult *= 10;
+        }
+        return number;
+    }
 
 }

@@ -3,7 +3,7 @@ package Task;
 import java.util.Stack;
 
 public class ListNode {
-    int val;
+    public int val;
     public ListNode next;
 
     public ListNode() {
@@ -35,7 +35,7 @@ public class ListNode {
         return head;
     }
 
-    // todo проверка на палиндром
+    // todo проверка на палиндром +
     public static boolean isPalindrome(ListNode head) {
         ListNode first = head;
         ListNode last = head;
@@ -60,35 +60,26 @@ public class ListNode {
         return true;
     }
 
-    // todo Метод разворачивает односвязный список
-    public static void reverseInOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
 
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode current = root;
-        TreeNode prev = null;
 
-        while (!stack.isEmpty() || current != null) {
-            while (current != null) {
-                stack.push(current);
-                current = current.right;
-            }
+    //todo Метод объединяет два отсортированных массива в 1 отсортированный
+    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
-            current = stack.peek();
-
-            if (current.left != null && current.left != prev) {
-                current = current.left;
+        if (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                list1.next = mergeTwoLists(list1.next, list2);
+                return list1;
             } else {
-                stack.pop();
-                // Выводим элементы в обратном порядке
-                System.out.println(current.value);
-                prev = current;
-                current = null;
+                list2.next = mergeTwoLists(list1, list2.next);
+                return list2;
             }
         }
+        if (list1 == null)
+            return list2;
+        return list1;
     }
+
+
 
 }
 

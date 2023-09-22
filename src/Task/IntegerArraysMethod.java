@@ -1,10 +1,7 @@
 package Task;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class IntegerArraysMethod {
 
@@ -243,6 +240,33 @@ public class IntegerArraysMethod {
                 index++;
             }
         }
+        return index;
+    }
+
+    // todo Метод находит число в массиве если оно есть иначе индекс где оно может быть
+    public static int searchInsert(int[] nums, int target) {
+        int index = 0;
+        while (index < nums.length && target > nums[index]) {
+            index++;
+        }
+        return index;
+    }
+
+    public static int[] returnTwoIndex(int a, int[] b) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int[] index = new int[2];
+        for (int i = 0; i < b.length; i++) {
+
+            int result = a - b[i];
+
+            if (map.containsKey(result)) {
+                index[0] = map.get(result);
+                index[1] = i;
+                break;
+            }
+            map.put(b[i], i);
+        }
+
         return index;
     }
 }
