@@ -1,10 +1,14 @@
 package Task;
 
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.Queue;
 import java.util.Stack;
 
 public class ListNode {
     public int val;
     public ListNode next;
+
 
     public ListNode() {
     }
@@ -77,6 +81,48 @@ public class ListNode {
         if (list1 == null)
             return list2;
         return list1;
+    }
+
+
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0); // Создаем фиктивный узел для начала результата
+        ListNode curr = dummy;
+        int carry = 0; // Переменная для переноса
+
+        while (l1 != null || l2 != null) {
+            int x = (l1 != null) ? l1.val : 0; // Получаем значение текущего узла l1 (если l1 не равен null)
+            int y = (l2 != null) ? l2.val : 0; // Получаем значение текущего узла l2 (если l2 не равен null)
+
+            int sum = carry + x + y; // Суммируем значения и перенос
+
+            carry = sum / 10; // Вычисляем перенос для следующего разряда
+            curr.next = new ListNode(sum % 10); // Создаем новый узел с текущей цифрой суммы
+            curr = curr.next; // Переходим к следующему узлу
+
+            if (l1 != null) {
+                l1 = l1.next; // Переходим к следующему узлу списка l1
+            }
+            if (l2 != null) {
+                l2 = l2.next; // Переходим к следующему узлу списка l2
+            }
+        }
+
+        if (carry > 0) {
+            curr.next = new ListNode(carry); // Если есть оставшийся перенос, создаем новый узел с этим значением
+        }
+
+        return dummy.next;
+    }
+
+    public static void main(String[] args) {
+        var a1 = new ListNode(1,new ListNode(2, new ListNode(3)));
+        var a2 = new ListNode(3,new ListNode(2, new ListNode(1)));
+        var test = addTwoNumbers(a1,a2);
+
+        while (test != null) {
+            System.out.println(test.val);
+            test = test.next;
+        }
     }
 
 

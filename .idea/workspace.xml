@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a4955e0-70c8-46fc-88de-e2882e37a514" name="Changes" comment="Удалил лишние классы, отсортировал.">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Quest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task/ArraysMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task/Save.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task/Url.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ThreadTest.java" afterDir="false" />
+    <list default="true" id="2a4955e0-70c8-46fc-88de-e2882e37a514" name="Changes" comment="1">
+      <change afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Task/IntegerArraysMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task/IntegerArraysMethod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Task/ListNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task/ListNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Task/StringMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task/StringMethod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Task/TreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task/TreeNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +54,13 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Application" />
+      <module name="My-Task-Git" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="B" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Task1.B" />
       <module name="My-Task-Git" />
@@ -74,16 +74,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ex (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Ex" />
+    <configuration name="ListNode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Task.ListNode" />
       <module name="My-Task-Git" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Ex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.Ex" />
-      <module name="My-Task-Git" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Task.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -102,12 +101,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TreeNode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Task.TreeNode" />
+      <module name="My-Task-Git" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Task.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ListNode" />
+        <item itemvalue="Application.Application" />
+        <item itemvalue="Application.TreeNode" />
         <item itemvalue="Application.B" />
         <item itemvalue="Application.ThreadTest" />
-        <item itemvalue="Application.Ex (1)" />
-        <item itemvalue="Application.Ex" />
       </list>
     </recent_temporary>
   </component>
@@ -188,6 +201,35 @@
       <workItem from="1694030701870" duration="3575000" />
       <workItem from="1694170252468" duration="4973000" />
       <workItem from="1695294133689" duration="1407000" />
+      <workItem from="1695419648075" duration="86000" />
+      <workItem from="1695987049470" duration="1000" />
+      <workItem from="1696628630553" duration="148000" />
+      <workItem from="1700554574252" duration="723000" />
+      <workItem from="1700678820669" duration="3821000" />
+      <workItem from="1700834879358" duration="518000" />
+      <workItem from="1700842599457" duration="13649000" />
+      <workItem from="1700936915990" duration="7757000" />
+      <workItem from="1701093419771" duration="689000" />
+      <workItem from="1701171535358" duration="14000" />
+      <workItem from="1701186410764" duration="564000" />
+      <workItem from="1701359536218" duration="8701000" />
+      <workItem from="1701508273129" duration="3423000" />
+      <workItem from="1701521543618" duration="10615000" />
+      <workItem from="1701620319301" duration="4026000" />
+      <workItem from="1701643817917" duration="1476000" />
+      <workItem from="1701645324737" duration="594000" />
+      <workItem from="1701683450761" duration="53000" />
+      <workItem from="1701684184878" duration="2000" />
+      <workItem from="1701686424604" duration="15453000" />
+      <workItem from="1701770955656" duration="9150000" />
+      <workItem from="1701799933391" duration="1339000" />
+      <workItem from="1701935740978" duration="58000" />
+      <workItem from="1702292053431" duration="36000" />
+      <workItem from="1702402471216" duration="1206000" />
+      <workItem from="1702548401918" duration="538000" />
+      <workItem from="1702574658901" duration="2000" />
+      <workItem from="1703185477190" duration="540000" />
+      <workItem from="1705660644867" duration="557000" />
     </task>
     <task id="LOCAL-00001" summary="3 task finish">
       <created>1688481880443</created>
@@ -224,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688940288860</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1">
+      <created>1695419684380</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1695419684380</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +296,8 @@
     <MESSAGE value="add new class" />
     <MESSAGE value="add more class" />
     <MESSAGE value="Удалил лишние классы, отсортировал." />
-    <option name="LAST_COMMIT_MESSAGE" value="Удалил лишние классы, отсортировал." />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -256,6 +306,31 @@
           <url>file://$PROJECT_DIR$/src/Ex.java</url>
           <line>52</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Application.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Application.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

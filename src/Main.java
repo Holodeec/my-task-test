@@ -1,160 +1,175 @@
-import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import Task.TreeNode;
 
-import static java.util.function.Function.identity;
-import static java.util.stream.Collectors.toList;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.List;
+import java.util.Stack;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
+
     public static void main(String[] args) throws MyException {
 
+        String s = "CN=Каригов Абди Бесланович,OU=Users,OU=RTI,OU=UF,DC=UF,DC=RT,DC=RU";
 
-
+        System.out.println(text(s, 3));
     }
 
-    public static String groupNumbers1(String input) {
-        String[] values = input.split(",");
-        StringBuilder build = new StringBuilder();
-        int prev = Integer.parseInt(values[0]);
+    public static String text(String s, int index) {
+        Pattern pattern = Pattern.compile("CN=([^\\s]+)\\s([^\\s]+)\\s([^,]+)");
+        Matcher matcher = pattern.matcher(s);
+        String value = "";
+        if (matcher.find()) {
+            value = matcher.group(index);
+        }
+        return value;
+    }
 
-        build.append("(").append(prev);
+    public static boolean construct(String first, String last) {
+        char[] chars = first.toCharArray();
+        char[] chars1 = last.toCharArray();
+        int length = 0, a_index = 0, b_index = 0;
 
-        for (int i = 1; i < values.length; i++) {
-            int x = Integer.parseInt(values[i]);
+        while (b_index < chars1.length) {
+            if (chars[a_index] == chars1[b_index++]) {
+                a_index++;
+                length++;
+            }
+            if (length == chars.length) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-            if(x != prev +1) {
+    public static List<Integer> revers(TreeNode node) {
+        Deque<TreeNode> deque = new ArrayDeque();
+        deque.push(node);
+        List<Integer> list = new ArrayList<>();
+        while (deque.size() > 0) {
+            TreeNode tree = deque.pop();
+            list.add(tree.value);
 
-                build.append(") (").append(x);
+            if (tree.left != null) {
+                deque.push(tree.left);
+            }
+            if (tree.right != null) {
+                deque.push(tree.right);
+            }
+
+        }
+
+
+        return list;
+    }
+
+    public static int maxProfit(int[] prices) {
+        int max = Integer.MAX_VALUE;
+        int sum = 0;
+        int p = 0;
+
+        for (int i = 0; i < prices.length; i++) {
+
+            if (prices[i] < max) { //7 1 5
+                max = prices[i];
+            }
+            sum = prices[i] - max;
+            if (p < sum) {
+                p = sum;
+            }
+        }
+        return p;
+    }
+
+    public static int[] arr_merge(int[] a, int[] b) {
+        int a_size = 0, b_size = 0, index = 0;
+        int length1 = a.length, length2 = b.length;
+
+        int[] merged = new int[length1 + length2];
+
+        while (a_size < length1 && b_size < length2) {
+
+            if (a[a_size] < b[b_size]) {
+                merged[index++] = a[a_size++];
+            } else if (a[a_size] == b[b_size]) {
+                merged[index++] = b[b_size++];
             } else {
-                build.append(",").append(x);
+                merged[index++] = a[a_size++];
+                b_size++;
             }
 
-            prev = x;
-
+            while (a_size < length1) {
+                merged[index++] = a[a_size++];
+            }
+            while (b_size < length2) {
+                merged[index++] = b[b_size++];
+            }
         }
-        build.append(")");
-        return build.toString();
+        return merged;
     }
-    public static String groupNumbers(String input) {
-        String[] numbers = input.split(",");
-        StringBuilder sb = new StringBuilder();
-        int start = Integer.parseInt(numbers[0]);
-        int prev = start;
 
-        sb.append("(").append(start);
+    public static boolean isValid(String s) {
+        var arr = s.toCharArray();
 
-        for (int i = 1; i < numbers.length; i++) {
-            int current = Integer.parseInt(numbers[i]);
+        if (arr.length % 2 != 0 || arr[0] == '}' || arr[0] == ']' || arr[0] == ')') return false;
 
-            if (current != prev + 1) {
-                sb.append(") (").append(current);
+        Stack<Character> stack = new Stack<>();
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (arr[i] == '(') {
+                stack.push(')');
+            } else if (arr[i] == '{') {
+                stack.push('}');
+            } else if (arr[i] == '[') {
+                stack.push(']');
             } else {
-                sb.append(",").append(current);
-            }
-            prev = current;
-        }
-        sb.append(")");
-        return sb.toString();
-    }
-
-
-    private static int[] stringLength(String a) {
-        String[] values = a.split("");
-        Arrays.stream(values)
-                .collect(Collectors.groupingBy(String::toLowerCase, Collectors.counting()))
-                .forEach((key, value) -> System.out.println(" value: " + value + "| key:" + key));
-        return Arrays.stream(values).map(String::length).mapToInt(Integer::intValue).toArray();
-
-
-    }
-
-    public static int[] method(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int count = 0;
-        int value = 0;
-
-        for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(nums[i])) {
-                map.put(nums[i], map.get(nums[i]) + 1);
-            } else {
-                map.put(nums[i], 1);
-            }
-
-            if (k <= map.get(nums[i])) {
-                value = nums[i];
+                if (!stack.isEmpty() && stack.peek() == arr[i]) {
+                    stack.pop();
+                } else {
+                    return false;
+                }
             }
         }
 
-        int[] mass = new int[nums.length - map.get(nums[value])];
-        for (int j = 0; j < nums.length; j++) {
-            if (nums[j] != value && count < mass.length) {
-                mass[count] = nums[j];
-                count++;
+        return stack.isEmpty();
+    }
+
+    public static int[] method(int[] arr) {
+
+        int value;
+        for (int i = 0; i < arr.length; i++) {
+
+            if (arr[i] % 2 != 0) {
+
+                for (int j = arr.length - 1; j > i; j--) {
+                    if (arr[j] % 2 == 0) {
+                        value = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = value;
+                    }
+
+                }
+
             }
         }
-        return mass;
+        return arr;
     }
 
-    public static int[] method1(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
 
-        for (int value : nums) {
-            if (map.containsKey(value)) {
-                map.put(value, map.get(value) + 1);
-            } else {
-                map.put(value, 1);
+    public static boolean isPalindrome(String s) {
+        int length = s.length();
+        char[] c = s.replace("[A-Za-z\\W]", "").toLowerCase().toCharArray();
+        for (int i = 0; i < (length / 2); i++) {
+            if (c[i] != c[length - i - 1]) {
+                return false;
             }
         }
-
-        return map.entrySet().stream()
-                .filter(entry -> entry.getValue() < k)
-                .map(Map.Entry::getKey)
-                .mapToInt(Integer::intValue)
-                .toArray();
+        return true;
     }
 
-    public static int[] deleteDuplicate(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
 
-        for (int value : nums) {
-            if (map.containsKey(value)) {
-                map.put(value, map.get(value) + 1);
-            } else {
-                map.put(value, 1);
-            }
-        }
-        List<Integer> values = new ArrayList<>();
-        for (int value : nums) {
-            if (map.get(value) < k) {
-                values.add(value);
-            }
-        }
-        return values.stream().mapToInt(Integer::intValue).toArray();
-    }
-
-    public static int[] removeDuplicates(int[] nums, int k) {
-
-        return Arrays.stream(nums)
-                .boxed()
-                .collect(Collectors.groupingBy(identity(), Collectors.counting()))
-                .entrySet()
-                .stream()
-                .filter(entry -> entry.getValue() < k)
-                .map(Map.Entry::getKey)
-                .mapToInt(Integer::intValue)
-                .toArray();
-    }
-
-    public static int[] removeDuplicates1(int[] nums, int k) {
-
-        return Arrays.stream(nums)
-                .boxed()
-                .collect(Collectors.groupingBy(n -> n, Collectors.counting()))
-                .entrySet()
-                .stream()
-                .filter(entry -> entry.getValue() < k)
-                .map(Map.Entry::getKey)
-                .mapToInt(Integer::intValue)
-                .toArray();
-    }
 }

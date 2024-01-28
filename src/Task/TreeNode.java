@@ -9,13 +9,16 @@ public class TreeNode {
 
     public TreeNode() {
     }
+
     public TreeNode(int value) {
         this.value = value;
     }
+
     public TreeNode(int value, TreeNode left) {
         this.value = value;
         this.left = left;
     }
+
     public TreeNode(int value, TreeNode left, TreeNode right) {
         this.value = value;
         this.left = left;
@@ -32,6 +35,7 @@ public class TreeNode {
     }
 
     // todo Метод делает обратный обход бинарного дерева
+
     public static List<Integer> revers(TreeNode root) {
 
         List<Integer> list = new ArrayList<>();
@@ -41,7 +45,7 @@ public class TreeNode {
             TreeNode t = stack.pop();
             list.add(t.value);
 
-            if(t.right != null) {
+            if (t.right != null) {
                 stack.push(t.right);
             }
             if (t.left != null) {
@@ -50,21 +54,21 @@ public class TreeNode {
         }
         return list;
     }
-
     // todo Рекурсивный обход дерева
+
     public static void reversTwin(TreeNode t) {
         reversRecursion(t);
     }
+
     private static void reversRecursion(TreeNode t) {
         if (t != null) {
             reversRecursion(t.left);
             System.out.println("node = " + t.value);
-
             reversRecursion(t.right);
         }
     }
-
     // todo Метод обходит дерево слева на право и считает сумму
+
     public static int sumDeep(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
@@ -76,19 +80,19 @@ public class TreeNode {
             System.out.println(t);
 
 
-            if(t.right != null) {
+            if (t.right != null) {
                 stack.push(t.right);
             }
 
-            if(t.left != null) {
+            if (t.left != null) {
                 stack.push(t.left);
             }
 
         }
         return sum;
     }
-
     // todo Метод разворачивает бинарное дерево
+
     public static void reverseInOrderTraversal(TreeNode root) {
         if (root == null) {
             return;
@@ -117,8 +121,8 @@ public class TreeNode {
             }
         }
     }
-
     // todo Метод обходит бинарное дерево и находит путь с максимальным значением суммируя их
+
     public static int maxPathSum(TreeNode root) {
         if (root == null) {
             return 0;
@@ -128,5 +132,34 @@ public class TreeNode {
         int maxRight = maxPathSum(root.right);
 
         return Math.max(maxLeft, maxRight) + root.value;
+    }
+
+    public static TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        return new TreeNode(root.value, invertTree(root.right), invertTree(root.left));
+    }
+
+    public static void printInOrder(TreeNode root) {
+        if (root != null) {
+            System.out.print(root.value + " ");
+            printInOrder(root.left);
+            printInOrder(root.right);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        var tree = new TreeNode(4,
+
+                new TreeNode(2,
+                        new TreeNode(1), new TreeNode(3)),
+                new TreeNode(7,
+                        new TreeNode(6), new TreeNode(9)));
+
+        printInOrder(invertTree(tree));
+
     }
 }

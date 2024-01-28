@@ -3,7 +3,7 @@ package Task;
 import java.util.*;
 
 public class StringMethod {
-
+    // ono /// ornon
     // todo Метод проверяет можно ли из одного слова создать другое используя буквы только 1 раз
     public static boolean canConstruct(String ransomNote, String magazine) {
         char[] first = ransomNote.toLowerCase().toCharArray();
